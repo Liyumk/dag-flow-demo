@@ -1,10 +1,7 @@
-import { Button, InputAdornment, SvgIconTypeMap } from "@mui/material";
-import { Outlet } from "react-router";
+import { InputAdornment, SvgIconTypeMap } from "@mui/material";
 import { twMerge } from "tailwind-merge";
-import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import DiamondIcon from "@mui/icons-material/Diamond";
-import AcUnitIcon from "@mui/icons-material/AcUnit";
 import DataObjectIcon from "@mui/icons-material/DataObject";
 import LockIcon from "@mui/icons-material/Lock";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
@@ -13,62 +10,46 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import TextField from "@mui/material/TextField";
 import SearchIcon from "@mui/icons-material/Search";
 
-const Layout = () => {
-  return (
-    <div className="flex h-screen">
-      <div className="rounded-lg bg-zinc-900 p-2 md:w-12 "></div>
-      <div className="m-2 hidden h-fit rounded-lg bg-gradient-to-br from-zinc-800 to-zinc-950 p-2 md:block md:w-64">
-        <LeftSideBar />
-      </div>
-      <div className="m-2 flex-1 rounded-lg bg-gradient-to-br from-zinc-800 to-zinc-950">
-        <Outlet />
-      </div>
-      <div className="m-2 hidden rounded-lg bg-zinc-900 p-2 md:block md:w-64"></div>
-    </div>
-  );
-};
+const sideBarItem = [
+  {
+    id: 1,
+    title: "OpenAI helper",
+    description: "Write AI content",
+    path: "/workflows/openai-helper",
+    Icon: DiamondIcon,
+  },
+  {
+    id: 2,
+    title: "Data Visualization",
+    description: "Visualize data insights",
+    path: "/workflows/data-visualization",
+    Icon: DataObjectIcon,
+  },
+  {
+    id: 3,
+    title: "User Authentication",
+    description: "Secure user access",
+    path: "/workflows/user-authentication",
+    Icon: LockIcon,
+  },
+  {
+    id: 4,
+    title: "E-commerce Store",
+    description: "Online shopping platform",
+    path: "/workflows/e-commerce-store",
+    Icon: AddShoppingCartIcon,
+  },
+  {
+    id: 5,
+    title: "Social Media Feed",
+    description: "Display posts dynamically",
+    path: "/workflows/social-media-feed",
+    Icon: InstagramIcon,
+  },
+];
 
 const LeftSideBar = () => {
   const { pathname } = useLocation();
-
-  const sideBarItem = [
-    {
-      id: 1,
-      title: "OpenAI helper",
-      description: "Write AI content",
-      path: "/workflows/openai-helper",
-      Icon: DiamondIcon,
-    },
-    {
-      id: 2,
-      title: "Data Visualization",
-      description: "Visualize data insights",
-      path: "/workflows/data-visualization",
-      Icon: DataObjectIcon,
-    },
-    {
-      id: 3,
-      title: "User Authentication",
-      description: "Secure user access",
-      path: "/workflows/user-authentication",
-      Icon: LockIcon,
-    },
-    {
-      id: 4,
-      title: "E-commerce Store",
-      description: "Online shopping platform",
-      path: "/workflows/e-commerce-store",
-      Icon: AddShoppingCartIcon,
-    },
-    {
-      id: 5,
-      title: "Social Media Feed",
-      description: "Display posts dynamically",
-      path: "/workflows/social-media-feed",
-      Icon: InstagramIcon,
-    },
-    // Add more items here
-  ];
 
   return (
     <div>
@@ -142,4 +123,4 @@ const LeftSideBarItem = ({
   );
 };
 
-export default Layout;
+export default LeftSideBar;

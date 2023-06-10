@@ -1,6 +1,6 @@
 import { routerType } from "../types/router";
 import Home from "../pages/Home";
-import WorkFlow from "../pages/WorkFlow";
+import WorkFlow from "../pages/Workflow";
 
 const routerConfig: routerType[] = [
   {
