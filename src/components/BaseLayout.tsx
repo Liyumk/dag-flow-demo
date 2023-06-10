@@ -16,11 +16,11 @@ import SearchIcon from "@mui/icons-material/Search";
 const Layout = () => {
   return (
     <div className="flex h-screen">
-      <div className="rounded-lg bg-zinc-900 p-2 md:w-12"></div>
-      <div className="m-2 hidden h-fit rounded-lg bg-zinc-900 p-2 md:block md:w-64">
+      <div className="rounded-lg bg-zinc-900 p-2 md:w-12 "></div>
+      <div className="m-2 hidden h-fit rounded-lg bg-gradient-to-br from-zinc-800 to-zinc-950 p-2 md:block md:w-64">
         <LeftSideBar />
       </div>
-      <div className="m-2 flex-1  rounded-lg">
+      <div className="m-2 flex-1 rounded-lg bg-gradient-to-br from-zinc-800 to-zinc-950">
         <Outlet />
       </div>
       <div className="m-2 hidden rounded-lg bg-zinc-900 p-2 md:block md:w-64"></div>
