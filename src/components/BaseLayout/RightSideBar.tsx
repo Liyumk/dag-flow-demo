@@ -148,7 +148,7 @@ const RightSideBar = () => {
 const RightSideMenu = (mainMenu: MainMenu) => {
   return (
     <div>
-      <Accordion className="mt-1 rounded-xl  bg-neutral-800 text-white">
+      <Accordion className="mt-1 rounded-xl bg-neutral-800 text-white">
         <AccordionSummary
           aria-controls="panel1d-content"
           id="panel1d-header"
