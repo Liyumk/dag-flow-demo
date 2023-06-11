@@ -20,6 +20,10 @@ import CottageOutlinedIcon from "@mui/icons-material/CottageOutlined";
 import HomeWorkOutlinedIcon from "@mui/icons-material/HomeWorkOutlined";
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
 import { generateId } from "../../utils/generateId";
+import FunctionsOutlinedIcon from "@mui/icons-material/FunctionsOutlined";
+import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
+import IosShareOutlinedIcon from "@mui/icons-material/IosShareOutlined";
+import PestControlOutlinedIcon from "@mui/icons-material/PestControlOutlined";
 
 const inputDraggableNodes: DraggableNode[] = [
   {
@@ -114,6 +118,16 @@ const mainMenu: MainMenu[] = [
 const RightSideBar = () => {
   return (
     <div>
+      <div className="mt-1 flex h-24 items-center justify-between px-5">
+        <div className="flex gap-x-2">
+          <FunctionsOutlinedIcon className="cursor-pointer text-neutral-600" />
+          <AddOutlinedIcon className="cursor-pointer  text-neutral-600" />
+          <IosShareOutlinedIcon className="cursor-pointer  text-neutral-600" />
+          <PestControlOutlinedIcon className="cursor-pointer  text-neutral-600" />
+        </div>
+
+        <MenuIcon className=" cursor-pointer  text-neutral-600" />
+      </div>
       <div className="flex justify-between rounded-lg bg-neutral-800 p-1 px-2">
         <div className="flex cursor-pointer gap-x-1">
           <MenuIcon />
