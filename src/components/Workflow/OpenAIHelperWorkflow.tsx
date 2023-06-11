@@ -11,12 +11,21 @@ import ReactFlow, {
 } from "reactflow";
 import Droppable from "../DnD/Droppable";
 import { XYCoord } from "react-dnd";
+import CustomNode from "./CustomNode";
+
+const nodeTypes = {
+  input: CustomNode,
+};
+
+export interface NewNode {
+  id: string;
+  coords: XYCoord;
+  data: {};
+  type?: string;
+}
 
 const OpenAIHelperWorkflow = () => {
-  const initialNodes = [
-    { id: "1", position: { x: 100, y: 0 }, data: { label: "1" } },
-    { id: "2", position: { x: 0, y: 100 }, data: { label: "2" } },
-  ];
+  const initialNodes: [] = [];
   const initialEdges = [{ id: "e1-2", source: "1", target: "2" }];
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
@@ -27,13 +36,14 @@ const OpenAIHelperWorkflow = () => {
     [setEdges]
   );
 
-  const addNewNode = (id: string, coords: XYCoord, label: string) => {
+  const addNewNode = ({ id, coords, data, type }: NewNode) => {
     const newNode = {
       id,
+      type: type,
       position: project({
         ...coords,
       }),
-      data: { label },
+      data,
     };
     setNodes((nds) => [...nds, newNode]);
   };
@@ -46,10 +56,15 @@ const OpenAIHelperWorkflow = () => {
           edges={edges}
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
+          nodeTypes={nodeTypes}
           onConnect={onConnect}
           attributionPosition="bottom-left"
         >
-          <Controls className="flex bg-zinc-600" position="bottom-right" />
+          <Controls
+            className="flex bg-zinc-600"
+            position="bottom-right"
+            showFitView={false}
+          />
           <Background color="gray" gap={12} size={1} />
         </ReactFlow>
       </div>

@@ -1,4 +1,4 @@
-import { DraggableNode } from "../../types/workflow/node";
+import { DraggableNode, NodeTypes } from "../../types/workflow/node";
 import Typography from "@mui/material/Typography";
 import {
   Accordion,
@@ -92,7 +92,7 @@ const favouriteDraggableNodes: DraggableNode[] = [
 ];
 
 type MainMenu = {
-  name: string;
+  name: NodeTypes;
   draggableItems: DraggableNode[];
 };
 
@@ -106,7 +106,7 @@ const mainMenu: MainMenu[] = [
     draggableItems: inputDraggableNodes,
   },
   {
-    name: "Favourites",
+    name: "Favorites",
     draggableItems: favouriteDraggableNodes,
   },
 ];
@@ -147,7 +147,10 @@ const RightSideMenu = (mainMenu: MainMenu) => {
         <AccordionDetails className="px-0 pt-1">
           {mainMenu.draggableItems.map(({ id, name, Icon, description }) => (
             <div className="my-2 cursor-pointer" key={id}>
-              <Draggable item={{ id, name, Icon, description }} type="NODE">
+              <Draggable
+                item={{ id, name, Icon, description, nodeType: mainMenu.name }}
+                type="NODE"
+              >
                 <div className="flex items-center gap-x-2">
                   <div className="rounded-lg bg-neutral-900 p-1">
                     <Icon fontSize="medium" className="text-violet-300" />

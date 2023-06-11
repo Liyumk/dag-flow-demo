@@ -1,11 +1,12 @@
 import { DropTargetMonitor, XYCoord, useDrop } from "react-dnd";
 import { CSSProperties, PropsWithChildren, useRef } from "react";
-import { DraggableNode } from "../../types/workflow/node";
+import { DraggableNode, NodeTypes } from "../../types/workflow/node";
 import { Node } from "reactflow";
 import { generateId } from "../../utils/generateId";
+import { NewNode } from "../Workflow/OpenAIHelperWorkflow";
 
 interface Props extends PropsWithChildren {
-  addNewNode: (id: string, coords: XYCoord, label: string) => void;
+  addNewNode: ({ id, coords, data, type }: NewNode) => void;
   nodes: Node<
     {
       label: string;
@@ -19,6 +20,7 @@ function Droppable({ children, addNewNode, nodes }: Props) {
   const handleDrop = (monitor: DropTargetMonitor, item: DraggableNode) => {
     const containerY = containerRef.current?.getBoundingClientRect().y;
     const containerX = containerRef.current?.getBoundingClientRect().x;
+
     const { x: draggableX, y: draggableY } =
       monitor.getClientOffset() as XYCoord;
 
@@ -26,7 +28,18 @@ function Droppable({ children, addNewNode, nodes }: Props) {
       let x = draggableX - containerX - 75;
       let y = draggableY - containerY;
       const id = generateId(item.id);
-      addNewNode(id, { x, y }, item.name);
+      addNewNode({
+        id,
+        coords: { x, y },
+        type: "input",
+        data: {
+          hasTarget: item.nodeType === "Prefabs" ? false : true,
+          hasTwoSources: item.nodeType === "Inputs" ? true : false,
+          hasSource: true,
+          label: item.name,
+          type: item.nodeType,
+        },
+      });
     }
   };
 

@@ -10,6 +10,8 @@ export type Node = {
   };
 };
 
+export type NodeTypes = "Inputs" | "Favorites" | "Prefabs";
+
 export type DraggableNode = {
   id: string;
   name: string;
@@ -17,4 +19,5 @@ export type DraggableNode = {
     muiName: string;
   };
   description: string;
+  nodeType?: NodeTypes;
 };
