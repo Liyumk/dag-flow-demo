@@ -1,5 +1,6 @@
 import React from "react";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
+import ArrowBackIosOutlined from "@mui/icons-material/ArrowBackIosOutlined";
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import SportsMotorsportsOutlinedIcon from "@mui/icons-material/SportsMotorsportsOutlined";
 import ScatterPlotOutlinedIcon from "@mui/icons-material/ScatterPlotOutlined";
@@ -12,20 +13,36 @@ import WorkspacesOutlinedIcon from "@mui/icons-material/WorkspacesOutlined";
 import LiveHelpOutlinedIcon from "@mui/icons-material/LiveHelpOutlined";
 import PublicOutlinedIcon from "@mui/icons-material/PublicOutlined";
 
-const LeftSideIconMenu = () => {
+const LeftSideIconMenu = ({
+  showLeftSideBar,
+  toggleShowLeftSideBar,
+}: {
+  showLeftSideBar: boolean;
+  toggleShowLeftSideBar: () => void;
+}) => {
   return (
     <div className="flex flex-col justify-between rounded-lg bg-neutral-900 p-2 md:w-12">
       <div>
         <div className="flex flex-col items-center">
           <MoreHorizOutlinedIcon
             fontSize="small"
-            className="cursor-pointer text-neutral-200"
+            className="cursor-pointer text-white"
           />
-          <div className="mt-4 flex items-center justify-center rounded-full bg-gradient-to-r from-neutral-800 to-neutral-950 p-1">
-            <ArrowForwardIosOutlinedIcon
-              fontSize="small"
-              className="cursor-pointer text-neutral-600"
-            />
+          <div
+            className="mt-4 flex items-center justify-center rounded-full bg-gradient-to-r from-neutral-800 to-neutral-950 p-1"
+            onClick={toggleShowLeftSideBar}
+          >
+            {showLeftSideBar ? (
+              <ArrowForwardIosOutlinedIcon
+                fontSize="small"
+                className="cursor-pointer text-neutral-400"
+              />
+            ) : (
+              <ArrowBackIosOutlined
+                fontSize="small"
+                className="cursor-pointer text-neutral-400"
+              />
+            )}
           </div>
         </div>
         <div className="mt-10 flex flex-col gap-y-5">
