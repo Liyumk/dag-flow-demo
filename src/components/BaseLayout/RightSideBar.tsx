@@ -146,7 +146,7 @@ const RightSideMenu = (mainMenu: MainMenu) => {
         </AccordionSummary>
         <AccordionDetails className="px-0 pt-1">
           {mainMenu.draggableItems.map(({ id, name, Icon, description }) => (
-            <div className="my-2 cursor-pointer">
+            <div className="my-2 cursor-pointer" key={id}>
               <Draggable item={{ id, name, Icon, description }} type="NODE">
                 <div className="flex items-center gap-x-2">
                   <div className="rounded-lg bg-neutral-900 p-1">
