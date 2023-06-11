@@ -9,8 +9,10 @@ import { OverridableComponent } from "@mui/material/OverridableComponent";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TextField from "@mui/material/TextField";
 import SearchIcon from "@mui/icons-material/Search";
+import TerminalOutlinedIcon from "@mui/icons-material/TerminalOutlined";
+import NoteAltOutlinedIcon from "@mui/icons-material/NoteAltOutlined";
 
-const sideBarItem = [
+const sideBarItems = [
   {
     id: 1,
     title: "OpenAI helper",
@@ -48,37 +50,72 @@ const sideBarItem = [
   },
 ];
 
-const LeftSideBar = () => {
+const recommendedItems = [
+  {
+    id: 1,
+    title: "Super Terminal",
+    description: "The ultimate command-line interface.",
+    path: "/workflows/super-terminal",
+    Icon: TerminalOutlinedIcon,
+  },
+  {
+    id: 2,
+    title: "Visual Studio Magic",
+    description: "Unleash the power of coding.",
+    path: "/workflows/visual-studio-magic",
+    Icon: NoteAltOutlinedIcon,
+  },
+];
+const LeftSideBar = ({ showLeftSideBar }: { showLeftSideBar: boolean }) => {
   const { pathname } = useLocation();
 
   return (
-    <div>
-      <div className="rounded-lg bg-black">
-        <TextField
-          fullWidth
-          placeholder="Find workflow"
-          id="fullWidth"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon sx={{ color: "gray" }} />
-              </InputAdornment>
-            ),
-          }}
-          sx={{
-            input: {
-              color: "white",
-              background: "black",
-              paddingY: "0.7rem",
-              borderRadius: 2,
-            },
-          }}
-        />
+    <div
+      className={twMerge(
+        "m-2 hidden flex-col  justify-between md:w-64",
+        showLeftSideBar ? "md:flex" : ""
+      )}
+    >
+      <div className="rounded-lg bg-neutral-900 p-2">
+        <div className="rounded-lg bg-black">
+          <TextField
+            fullWidth
+            placeholder="Find workflow"
+            id="fullWidth"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon sx={{ color: "gray" }} />
+                </InputAdornment>
+              ),
+            }}
+            sx={{
+              input: {
+                color: "white",
+                background: "black",
+                paddingY: "0.7rem",
+                borderRadius: 2,
+              },
+            }}
+          />
+        </div>
+        <div className="mt-8">
+          <p className="text-zinc-500">Installed</p>
+          <div className="mt-2">
+            {sideBarItems.map((item) => {
+              const isActive = pathname === item.path;
+              return (
+                <LeftSideBarItem active={isActive} {...item} key={item.id} />
+              );
+            })}
+          </div>
+        </div>
       </div>
-      <div className="mt-8">
-        <p className="text-zinc-500">Installed</p>
+
+      <div className="rounded-lg bg-neutral-900 p-2">
+        <p>Recomended</p>
         <div className="mt-2">
-          {sideBarItem.map((item) => {
+          {recommendedItems.map((item) => {
             const isActive = pathname === item.path;
             return (
               <LeftSideBarItem active={isActive} {...item} key={item.id} />

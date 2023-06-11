@@ -31,6 +31,16 @@ const Workflow = () => {
       description: "Create a social media feed",
       action: "Configure workflow",
     },
+    "super-terminal": {
+      title: "Super Terminal",
+      description: "The ultimate command-line interface.",
+      action: "Configure workflow",
+    },
+    "visual-studio-magic": {
+      title: "Visual Studio Magic",
+      description: "Unleash the power of coding.",
+      action: "Configure workflow",
+    },
   };
 
   const selectedWorkflow =

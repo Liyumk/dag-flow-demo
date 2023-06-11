@@ -18,14 +18,9 @@ const BaseLayout = () => {
         toggleShowLeftSideBar={toggleShowLeftSideBar}
         showLeftSideBar={showLeftSideBar}
       />
-      <div
-        className={twMerge(
-          "m-2 hidden h-fit rounded-lg bg-neutral-900 p-2 md:w-64",
-          showLeftSideBar ? "md:block" : "md:hidden"
-        )}
-      >
-        <LeftSideBar />
-      </div>
+
+      <LeftSideBar showLeftSideBar={showLeftSideBar} />
+
       <Outlet />
       <div className="m-2 w-36 rounded-lg bg-black md:block md:w-64">
         <RightSideBar />
