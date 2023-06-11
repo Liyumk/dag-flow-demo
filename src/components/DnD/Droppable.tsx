@@ -1,7 +1,8 @@
 import { DropTargetMonitor, XYCoord, useDrop } from "react-dnd";
 import { CSSProperties, PropsWithChildren, useRef } from "react";
-import { DraggableNode } from "../types/workflow/node";
+import { DraggableNode } from "../../types/workflow/node";
 import { Node } from "reactflow";
+import { generateId } from "../../utils/generateId";
 
 interface Props extends PropsWithChildren {
   addNewNode: (id: string, coords: XYCoord, label: string) => void;
@@ -24,7 +25,7 @@ function Droppable({ children, addNewNode, nodes }: Props) {
     if (!!containerX && !!containerY) {
       let x = draggableX - containerX - 75;
       let y = draggableY - containerY;
-      const id = nodes ? `${item.id}-${nodes.length + 1}` : `${item.id}-1 `;
+      const id = generateId(item.id);
       addNewNode(id, { x, y }, item.name);
     }
   };

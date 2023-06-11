@@ -80,7 +80,9 @@ const LeftSideBar = () => {
         <div className="mt-2">
           {sideBarItem.map((item) => {
             const isActive = pathname === item.path;
-            return <LeftSideBarItem active={isActive} {...item} />;
+            return (
+              <LeftSideBarItem active={isActive} {...item} key={item.id} />
+            );
           })}
         </div>
       </div>

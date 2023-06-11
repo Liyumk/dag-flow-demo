@@ -19,6 +19,7 @@ import FilterAltIcon from "@mui/icons-material/FilterAltOutlined";
 import CottageOutlinedIcon from "@mui/icons-material/CottageOutlined";
 import HomeWorkOutlinedIcon from "@mui/icons-material/HomeWorkOutlined";
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
+import { generateId } from "../../utils/generateId";
 
 const inputDraggableNodes: DraggableNode[] = [
   {
@@ -124,7 +125,7 @@ const RightSideBar = () => {
         </div>
       </div>
       {mainMenu.map((menu) => (
-        <RightSideMenu {...menu} />
+        <RightSideMenu {...menu} key={generateId(menu.name)} />
       ))}
     </div>
   );
