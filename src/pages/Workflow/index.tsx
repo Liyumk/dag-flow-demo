@@ -61,7 +61,11 @@ const Workflow = () => {
   }
 
   return (
-    <div className="flex h-full items-center justify-center">#Workflow</div>
+    <div className="m-2 flex-1 overflow-hidden rounded-lg border-zinc-900 bg-gradient-to-r from-neutral-900 to-neutral-950">
+      <div className="flex h-full items-center justify-center text-2xl font-semibold">
+        Opps! workflow not found.
+      </div>
+    </div>
   );
 };
 
