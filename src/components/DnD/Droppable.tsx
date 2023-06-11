@@ -38,6 +38,7 @@ function Droppable({ children, addNewNode, nodes }: Props) {
           hasSource: true,
           label: item.name,
           type: item.nodeType,
+          Icon: item.Icon,
         },
       });
     }
@@ -63,7 +64,6 @@ function Droppable({ children, addNewNode, nodes }: Props) {
         data-testid="dustbin"
         className="flex h-full w-full items-center justify-center"
       >
-        {/* {isActive ? "Release to drop" : "Drag a box here"} */}
         {children}
       </div>
     </div>

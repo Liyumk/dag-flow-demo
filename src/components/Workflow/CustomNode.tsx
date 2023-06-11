@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { Handle, NodeProps, Position } from "reactflow";
 import { twMerge } from "tailwind-merge";
+
 export interface CustomNodeProps extends NodeProps {
   hasTarget?: boolean;
   hasSource?: boolean;
@@ -8,26 +9,42 @@ export interface CustomNodeProps extends NodeProps {
   type: string;
 }
 
+const commonNodeStyle =
+  "flex items-center justify-center bg-gradient-to-r from-neutral-700/80 to-neutral-800/90 p-5 text-white hover:border-2 hover:border-violet-400";
+
+const commonHandleStyle =
+  "border-.5 h-2.5 w-2.5 rounded border-violet-400/60 bg-neutral-800";
+
 const CustomNode = (props: CustomNodeProps) => {
   const {
     hasTarget,
     hasSource,
     hasTwoSources,
     type: typeFromData,
+    Icon,
   } = props.data;
   console.log("props", props);
 
   const TypeOfNode = () => {
-    switch (typeFromData) {
-      case "Inputs":
-        return <InputNode {...props} />;
-      case "Favorites":
-        return <FavouriteNode {...props} />;
-      case "Prefabs":
-        return <PreFabsNode {...props} />;
-      default:
-        return <InputNode {...props} />;
-    }
+    const isInputs = typeFromData === "Inputs";
+    const isPrefabs = typeFromData === "Prefabs";
+    const isFavourites = typeFromData === "Favorites";
+
+    return (
+      <div
+        className={twMerge(
+          isPrefabs
+            ? "h-28 flex-col gap-y-1  rounded-xl rounded-r-[2.5rem]"
+            : isInputs
+            ? "h-12 rounded-lg"
+            : "h-28 flex-col gap-y-1  rounded-lg",
+          commonNodeStyle
+        )}
+      >
+        <Icon fontSize="large" className="text-violet-300" />
+        <p className="text-[.9rem] font-semibold">{props.data.label}</p>
+      </div>
+    );
   };
 
   return (
@@ -37,7 +54,16 @@ const CustomNode = (props: CustomNodeProps) => {
         <Handle
           type="target"
           position={Position.Left}
-          className="border-.5 h-2.5 w-2.5 rounded border-violet-400/60 bg-neutral-800"
+          className={commonHandleStyle}
+        />
+      )}
+      {hasTwoSources && hasSource && (
+        <Handle
+          type="source"
+          position={Position.Right}
+          id="b"
+          style={{ top: 40 }}
+          className={commonHandleStyle}
         />
       )}
       {hasSource && (
@@ -46,61 +72,10 @@ const CustomNode = (props: CustomNodeProps) => {
           position={Position.Right}
           id="a"
           style={{ top: hasTwoSources ? 10 : undefined }}
-          className="border-.5 h-2.5 w-2.5 rounded border-violet-400/60 bg-neutral-800"
-        />
-      )}
-      {hasTwoSources && hasSource && (
-        <Handle
-          type="source"
-          position={Position.Right}
-          id="b"
-          style={{ top: 46 }}
-          className="border-.5 h-2.5 w-2.5 rounded border-violet-400/60 bg-neutral-800"
+          className={commonHandleStyle}
         />
       )}
     </>
-  );
-};
-
-const commonNodeStyle =
-  "bg-gradient-to-r from-neutral-700/80 to-neutral-800/90 p-5 text-white hover:border-2 hover:border-violet-400";
-
-const PreFabsNode = (props: CustomNodeProps) => {
-  return (
-    <div
-      className={twMerge(
-        "flex h-28 items-center justify-center rounded-xl rounded-r-[2.5rem]",
-        commonNodeStyle
-      )}
-    >
-      <p className="font-semibold ">{props.data.label}</p>
-    </div>
-  );
-};
-
-const FavouriteNode = (props: CustomNodeProps) => {
-  return (
-    <div
-      className={twMerge(
-        "flex h-28 items-center justify-center rounded-xl",
-        commonNodeStyle
-      )}
-    >
-      <p className="font-semibold ">{props.data.label}</p>
-    </div>
-  );
-};
-
-const InputNode = (props: CustomNodeProps) => {
-  return (
-    <div
-      className={twMerge(
-        "h-18 flex items-center justify-center rounded-xl",
-        commonNodeStyle
-      )}
-    >
-      <p className="font-semibold ">{props.data.label}</p>
-    </div>
   );
 };
 
