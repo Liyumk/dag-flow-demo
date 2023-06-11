@@ -1,3 +1,5 @@
+import { SvgIconTypeMap } from "@mui/material";
+import { OverridableComponent } from "@mui/material/OverridableComponent";
 import { XYPosition } from "reactflow";
 
 export type Node = {
@@ -11,4 +13,8 @@ export type Node = {
 export type DraggableNode = {
   id: string;
   name: string;
+  Icon: OverridableComponent<SvgIconTypeMap<{}, "svg">> & {
+    muiName: string;
+  };
+  description: string;
 };

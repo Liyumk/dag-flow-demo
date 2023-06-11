@@ -9,7 +9,7 @@ import ReactFlow, {
   Connection,
   useReactFlow,
 } from "reactflow";
-import Droppable from "../Droppable";
+import Droppable from "../DnD/Droppable";
 import { XYCoord } from "react-dnd";
 
 const OpenAIHelperWorkflow = () => {
