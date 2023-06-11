@@ -1,9 +1,10 @@
 import React, { PropsWithChildren } from "react";
 import { useDrag } from "react-dnd";
+import { DraggableNode } from "../types/workflow/node";
 // import styles from "../styles/Draggable.module.css";
 
 interface Props extends PropsWithChildren {
-  item: { name: string };
+  item: DraggableNode;
   type: string;
   hideWhenDrag?: boolean;
   state?: any;
@@ -26,12 +27,7 @@ function Draggable({ children, type, item, hideWhenDrag, state }: Props) {
   }
 
   return (
-    <div
-      // className={`${styles.draggable} ${isDragging && styles.dragging}`}
-      // style={style}
-      ref={drag}
-      className="my-2 cursor-pointer"
-    >
+    <div ref={drag} className="my-2 cursor-pointer">
       {children}
     </div>
   );

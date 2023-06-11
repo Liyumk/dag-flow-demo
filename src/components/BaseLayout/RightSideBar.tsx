@@ -1,15 +1,30 @@
 import { useDrag } from "react-dnd";
 import Draggable from "../Draggable";
+import { DraggableNode } from "../../types/workflow/node";
 
 const RightSideBar = () => {
   //Create an array with length of 4 map throught it and return div for each element
-  const sideBarItem = Array.from({ length: 4 });
+  const draggableItems: DraggableNode[] = [
+    {
+      id: "key-word",
+      name: "Key Word",
+    },
+    {
+      id: "run-script",
+      name: "Run Script",
+    },
+    {
+      id: "script-filter",
+      name: "Script Filter",
+    },
+  ];
+
   return (
     <div>
-      {sideBarItem.map(() => {
+      {draggableItems.map((item, index: number) => {
         return (
-          <Draggable item={{ name: "box" }} type="box">
-            <div>Hey there</div>
+          <Draggable item={{ name: item.name, id: item.id }} type="NODE">
+            <p>{item.name}</p>
           </Draggable>
         );
       })}

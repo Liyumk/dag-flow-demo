@@ -10,10 +10,8 @@ const BaseLayout = () => {
       <div className="m-2 hidden h-fit rounded-lg bg-gradient-to-br from-zinc-900 to-zinc-950 p-2 md:block md:w-64">
         <LeftSideBar />
       </div>
-      <div className="m-2 flex-1 rounded-lg bg-gradient-to-br from-zinc-800 to-zinc-950">
-        {/* <Droppable> */}
+      <div className="m-2 flex-1 overflow-hidden rounded-2xl border border-zinc-900 bg-gradient-to-r from-zinc-900 to-zinc-950">
         <Outlet />
-        {/* </Droppable> */}
       </div>
       <div className="m-2 hidden rounded-lg bg-zinc-900 p-2 md:block md:w-64">
         <RightSideBar />
