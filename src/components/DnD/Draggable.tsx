@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from "react";
 import { useDrag } from "react-dnd";
-import { DraggableNode } from "../types/workflow/node";
+import { DraggableNode } from "../../types/workflow/node";
 // import styles from "../styles/Draggable.module.css";
 
 interface Props extends PropsWithChildren {

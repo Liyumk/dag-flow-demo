@@ -1,5 +1,5 @@
 import { useDrag } from "react-dnd";
-import Draggable from "../Draggable";
+import Draggable from "../DnD/Draggable";
 import { DraggableNode } from "../../types/workflow/node";
 
 const RightSideBar = () => {
