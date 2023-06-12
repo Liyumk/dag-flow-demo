@@ -44,7 +44,7 @@ function Droppable({ children, addNewNode }: Props) {
     }
   };
 
-  const [{ canDrop, isOver }, drop] = useDrop(() => ({
+  const [{}, drop] = useDrop(() => ({
     accept: "NODE",
     drop: (item: DraggableNode, monitor: DropTargetMonitor) => {
       handleDrop(monitor, item);
@@ -55,7 +55,6 @@ function Droppable({ children, addNewNode }: Props) {
       dropItem: monitor.getItem(),
     }),
   }));
-  const isActive = canDrop && isOver;
 
   return (
     <div ref={containerRef} className="h-full w-full">

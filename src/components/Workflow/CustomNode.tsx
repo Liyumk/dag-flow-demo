@@ -27,7 +27,6 @@ const CustomNode = (props: CustomNodeProps) => {
   const TypeOfNode = () => {
     const isInputs = typeFromData === "Inputs";
     const isPrefabs = typeFromData === "Prefabs";
-    const isFavourites = typeFromData === "Favorites";
 
     return (
       <div
