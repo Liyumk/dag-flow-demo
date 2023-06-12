@@ -1,6 +1,6 @@
-# Workflow Demo Project
+# Drag and Drop workflow demo
 
-This is a React project showcasing a workflow visualization demo. The project utilizes the ReactFlow library to create an interactive and dynamic workflow visualization.
+This is a React project showcasing a DnD workflow visualization demo. The project utilizes the ReactFlow library to create an interactive and dynamic workflow visualization.
 
 ## Installation
 
