@@ -1,6 +1,6 @@
 import { DropTargetMonitor, XYCoord, useDrop } from "react-dnd";
-import { CSSProperties, PropsWithChildren, useRef } from "react";
-import { DraggableNode, NodeTypes } from "../../types/workflow/node";
+import { PropsWithChildren, useRef } from "react";
+import { DraggableNode } from "../../types/workflow/node";
 import { Node } from "reactflow";
 import { generateId } from "../../utils/generateId";
 import { NewNode } from "../Workflow/OpenAIHelperWorkflow";
@@ -15,7 +15,7 @@ interface Props extends PropsWithChildren {
   >[];
 }
 
-function Droppable({ children, addNewNode, nodes }: Props) {
+function Droppable({ children, addNewNode }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const handleDrop = (monitor: DropTargetMonitor, item: DraggableNode) => {
     const containerY = containerRef.current?.getBoundingClientRect().y;

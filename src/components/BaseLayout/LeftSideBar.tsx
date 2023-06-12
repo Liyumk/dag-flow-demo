@@ -12,60 +12,6 @@ import SearchIcon from "@mui/icons-material/Search";
 import TerminalOutlinedIcon from "@mui/icons-material/TerminalOutlined";
 import NoteAltOutlinedIcon from "@mui/icons-material/NoteAltOutlined";
 
-const sideBarItems = [
-  {
-    id: 1,
-    title: "OpenAI helper",
-    description: "Write AI content",
-    path: "/workflows/openai-helper",
-    Icon: DiamondIcon,
-  },
-  {
-    id: 2,
-    title: "Data Visualization",
-    description: "Visualize data insights",
-    path: "/workflows/data-visualization",
-    Icon: DataObjectIcon,
-  },
-  {
-    id: 3,
-    title: "User Authentication",
-    description: "Secure user access",
-    path: "/workflows/user-authentication",
-    Icon: LockIcon,
-  },
-  {
-    id: 4,
-    title: "E-commerce Store",
-    description: "Online shopping platform",
-    path: "/workflows/e-commerce-store",
-    Icon: AddShoppingCartIcon,
-  },
-  {
-    id: 5,
-    title: "Social Media Feed",
-    description: "Display posts dynamically",
-    path: "/workflows/social-media-feed",
-    Icon: InstagramIcon,
-  },
-];
-
-const recommendedItems = [
-  {
-    id: 1,
-    title: "Super Terminal",
-    description: "The ultimate command-line interface.",
-    path: "/workflows/super-terminal",
-    Icon: TerminalOutlinedIcon,
-  },
-  {
-    id: 2,
-    title: "Visual Studio Magic",
-    description: "Unleash the power of coding.",
-    path: "/workflows/visual-studio-magic",
-    Icon: NoteAltOutlinedIcon,
-  },
-];
 const LeftSideBar = ({ showLeftSideBar }: { showLeftSideBar: boolean }) => {
   const { pathname } = useLocation();
 
@@ -161,5 +107,60 @@ const LeftSideBarItem = ({
     </Link>
   );
 };
+
+const sideBarItems = [
+  {
+    id: 1,
+    title: "OpenAI helper",
+    description: "Write AI content",
+    path: "/workflows/openai-helper",
+    Icon: DiamondIcon,
+  },
+  {
+    id: 2,
+    title: "Data Visualization",
+    description: "Visualize data insights",
+    path: "/workflows/data-visualization",
+    Icon: DataObjectIcon,
+  },
+  {
+    id: 3,
+    title: "User Authentication",
+    description: "Secure user access",
+    path: "/workflows/user-authentication",
+    Icon: LockIcon,
+  },
+  {
+    id: 4,
+    title: "E-commerce Store",
+    description: "Online shopping platform",
+    path: "/workflows/e-commerce-store",
+    Icon: AddShoppingCartIcon,
+  },
+  {
+    id: 5,
+    title: "Social Media Feed",
+    description: "Display posts dynamically",
+    path: "/workflows/social-media-feed",
+    Icon: InstagramIcon,
+  },
+];
+
+const recommendedItems = [
+  {
+    id: 1,
+    title: "Super Terminal",
+    description: "The ultimate command-line interface.",
+    path: "/workflows/super-terminal",
+    Icon: TerminalOutlinedIcon,
+  },
+  {
+    id: 2,
+    title: "Visual Studio Magic",
+    description: "Unleash the power of coding.",
+    path: "/workflows/visual-studio-magic",
+    Icon: NoteAltOutlinedIcon,
+  },
+];
 
 export default LeftSideBar;

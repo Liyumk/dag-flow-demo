@@ -1,5 +1,3 @@
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { useState } from "react";
 import { styled } from "@mui/material";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import MuiAccordion, { AccordionProps } from "@mui/material/Accordion";
@@ -15,7 +13,7 @@ export const Accordion = styled((props: AccordionProps) => (
     {...props}
     sx={{ minHeight: "5px" }}
   />
-))(({ theme }) => ({
+))(({}) => ({
   borderRadius: "10px",
   "& .Mui-expanded": {
     borderRadius: "10px",
@@ -45,5 +43,4 @@ export const AccordionSummary = styled((props: AccordionSummaryProps) => (
 export const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   padding: theme.spacing(2),
   backgroundColor: "black",
-  // borderTop: "1px solid rgba(0, 0, 0, .125)",
 }));

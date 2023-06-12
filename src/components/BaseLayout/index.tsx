@@ -3,7 +3,6 @@ import LeftSideBar from "./LeftSideBar";
 import RightSideBar from "./RightSideBar";
 import LeftSideIconMenu from "./LeftSideIconMenu";
 import { useState } from "react";
-import { twMerge } from "tailwind-merge";
 import { useParams } from "react-router-dom";
 
 const BaseLayout = () => {

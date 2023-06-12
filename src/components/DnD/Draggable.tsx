@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import { useDrag } from "react-dnd";
 import { DraggableNode } from "../../types/workflow/node";
 
