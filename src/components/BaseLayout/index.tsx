@@ -4,9 +4,11 @@ import RightSideBar from "./RightSideBar";
 import LeftSideIconMenu from "./LeftSideIconMenu";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
+import { useParams } from "react-router-dom";
 
 const BaseLayout = () => {
   const [showLeftSideBar, setShowLeftSideBar] = useState(true);
+  const { workflow } = useParams();
 
   const toggleShowLeftSideBar = () => {
     setShowLeftSideBar((prev) => !prev);
@@ -22,9 +24,12 @@ const BaseLayout = () => {
       <LeftSideBar showLeftSideBar={showLeftSideBar} />
 
       <Outlet />
-      <div className="m-2 w-36 rounded-lg bg-black md:block md:w-64">
-        <RightSideBar />
-      </div>
+
+      {workflow === "openai-helper" && (
+        <div className="m-2 w-36 rounded-lg bg-black md:block md:w-64">
+          <RightSideBar />
+        </div>
+      )}
     </div>
   );
 };
