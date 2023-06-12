@@ -23,7 +23,6 @@ const CustomNode = (props: CustomNodeProps) => {
     type: typeFromData,
     Icon,
   } = props.data;
-  console.log("props", props);
 
   const TypeOfNode = () => {
     const isInputs = typeFromData === "Inputs";
