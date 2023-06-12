@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router";
-
 import routerConfig from "./routerConfig";
 import { routerType } from "../types/router";
 import Layout from "../components/BaseLayout";
