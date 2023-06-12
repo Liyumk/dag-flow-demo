@@ -20,7 +20,7 @@ const LeftSideIconMenu = ({
   toggleShowLeftSideBar: () => void;
 }) => {
   return (
-    <div className="flex flex-col justify-between rounded-lg bg-neutral-900 p-2 md:w-12">
+    <div className="flex flex-col justify-between bg-neutral-900 p-2 md:w-12">
       <div>
         <div className="flex flex-col items-center">
           <MoreHorizOutlinedIcon
